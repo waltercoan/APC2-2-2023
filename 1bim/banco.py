@@ -25,6 +25,24 @@ O programa só termina quando for digitada a opção 4 – Finalizar o programa.
 listacontas = [0] * 10
 listasaldo = [0] * 10
 
+for i in range(10):
+    while True:
+        print("Digite o numero da nova conta")
+        novaconta = int(input())
+        achei = False
+        for j in range(10):
+            if listacontas[j] == novaconta:
+                achei = True
+                break
+        if achei == False:
+            listacontas[i] = novaconta
+            break
+        else:
+            print("Numero da conta repetido")
+    print("Digite o saldo")
+    listasaldo[i] = float(input())
+
+
 #aqui voce vai programar as entradas
 opcao = 0
 while opcao != 4:
