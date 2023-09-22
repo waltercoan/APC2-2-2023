@@ -55,9 +55,41 @@ while opcao != 4:
     opcao = int(input())
     if opcao == 1:
         print("Deposito")
+        print("Digite o numero da conta")
+        conta = int(input())
+        print("Digite o valor do deposito")
+        valordep = float(input())
+        achei = False
+        for i in range(10):
+            if listacontas[i] == conta:
+                achei = True
+                listasaldo[i] += valordep
+                print("Deposito realizado com sucesso")
+                break
+        if achei  == False:
+            print("Conta inválida")
     if opcao == 2:
         print("SAQUE")
+        print("Digite o numero da conta")
+        conta = int(input())
+        print("Digite o valor do saque")
+        valsaq = float(input())
+        achei = False
+        for i in range(10):
+            if listacontas[i] == conta:
+                achei = True
+                if listasaldo[i] >= valsaq:
+                    listasaldo[i] -= valsaq
+                    print("Saque realizado com sucesso")
+                    print("Novo saldo: R$", listasaldo[i])
+                else:
+                    print("Saldo insuficiente")
+                break
+        if achei == False:
+            print("Conta inválida")
     if opcao == 3:
         print("Consulta")
+        for i in range(10):
+            print("Conta ", listacontas[i], "saldo ", listasaldo[i])
     if opcao == 4:
         print("Até logo e obrigado pelos peixes")
